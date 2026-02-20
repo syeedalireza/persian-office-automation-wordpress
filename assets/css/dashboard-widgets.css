@@ -1,0 +1,378 @@
+/**
+ * Office Automation - WordPress Dashboard Widgets
+ * Beautiful, RTL-aware styling for wp-admin index.php
+ */
+
+/* ========== Variables ========== */
+#dashboard-widgets .oa-dw {
+    --oa-dw-primary: #10b981;
+    --oa-dw-primary-dark: #059669;
+    --oa-dw-success: #10b981;
+    --oa-dw-warning: #f59e0b;
+    --oa-dw-danger: #ef4444;
+    --oa-dw-info: #3b82f6;
+    --oa-dw-purple: #8b5cf6;
+    --oa-dw-gray-100: #f3f4f6;
+    --oa-dw-gray-200: #e5e7eb;
+    --oa-dw-gray-500: #6b7280;
+    --oa-dw-gray-700: #374151;
+    --oa-dw-gray-900: #111827;
+    --oa-dw-radius: 10px;
+    --oa-dw-radius-sm: 6px;
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif;
+}
+
+/* ========== Base Widget ========== */
+#dashboard-widgets .oa-dw {
+    padding: 4px 0;
+    direction: rtl;
+}
+
+#dashboard-widgets .oa-dw-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--oa-dw-primary) !important;
+    text-decoration: none !important;
+    transition: color 0.2s, transform 0.2s;
+}
+
+#dashboard-widgets .oa-dw-link:hover {
+    color: var(--oa-dw-primary-dark) !important;
+    transform: translateX(-2px);
+}
+
+/* ========== Cartable Widget ========== */
+.oa-dw-cartable .oa-dw-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.oa-dw-cartable .oa-dw-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px;
+    border-radius: var(--oa-dw-radius-sm);
+    text-decoration: none !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.oa-dw-cartable .oa-dw-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.oa-dw-stat-inbox {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1d4ed8 !important;
+}
+
+.oa-dw-stat-pending {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #b45309 !important;
+}
+
+.oa-dw-stat-starred {
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+    color: #be185d !important;
+}
+
+.oa-dw-stat .oa-dw-stat-value {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.oa-dw-stat .oa-dw-stat-label {
+    font-size: 11px;
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+.oa-dw-alert {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    margin-top: 12px;
+    border-radius: var(--oa-dw-radius-sm);
+    font-size: 13px;
+}
+
+.oa-dw-alert-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #b91c1c;
+}
+
+.oa-dw-alert .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* ========== Empty State ========== */
+.oa-dw-empty {
+    text-align: center;
+    padding: 24px 16px;
+}
+
+.oa-dw-empty-icon {
+    display: block;
+    font-size: 36px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+
+.oa-dw-empty p {
+    margin: 0;
+    color: var(--oa-dw-gray-500);
+    font-size: 13px;
+}
+
+/* ========== Meetings Widget ========== */
+.oa-dw-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.oa-dw-list-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--oa-dw-gray-200);
+}
+
+.oa-dw-list-item:last-child {
+    border-bottom: none;
+}
+
+.oa-dw-list-item-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.oa-dw-list-item-main strong {
+    font-size: 13px;
+    color: var(--oa-dw-gray-900);
+}
+
+.oa-dw-meta {
+    font-size: 12px;
+    color: var(--oa-dw-gray-500);
+}
+
+.oa-dw-location {
+    font-size: 11px;
+    color: var(--oa-dw-gray-700);
+}
+
+/* ========== Tasks Widget ========== */
+.oa-dw-task-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.oa-dw-task-bar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 24px;
+    align-items: center;
+    gap: 8px;
+}
+
+.oa-dw-task-bar-label {
+    font-size: 12px;
+    color: var(--oa-dw-gray-700);
+}
+
+.oa-dw-task-bar-wrap {
+    height: 8px;
+    background: var(--oa-dw-gray-200);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.oa-dw-task-bar {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.oa-dw-task-bar-todo { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.oa-dw-task-bar-progress { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.oa-dw-task-bar-done { background: linear-gradient(90deg, #10b981, #34d399); }
+
+.oa-dw-task-bar-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--oa-dw-gray-700);
+}
+
+/* ========== Notifications Widget ========== */
+.oa-dw-notif-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.oa-dw-notif-item {
+    border-bottom: 1px solid var(--oa-dw-gray-200);
+}
+
+.oa-dw-notif-item:last-child {
+    border-bottom: none;
+}
+
+.oa-dw-notif-item a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none !important;
+    transition: background 0.15s;
+}
+
+.oa-dw-notif-item a:hover {
+    background: var(--oa-dw-gray-100);
+}
+
+.oa-dw-notif-item strong {
+    display: block;
+    font-size: 13px;
+    color: var(--oa-dw-gray-900);
+}
+
+.oa-dw-notif-meta {
+    font-size: 11px;
+    color: var(--oa-dw-gray-500);
+    margin-top: 2px;
+}
+
+/* ========== Correspondence Stats Widget ========== */
+.oa-dw-stats .oa-dw-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.oa-dw-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 12px;
+    border-radius: var(--oa-dw-radius);
+    text-decoration: none !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.oa-dw-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.oa-dw-stat-incoming {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #047857 !important;
+}
+
+.oa-dw-stat-outgoing {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    color: #b45309 !important;
+}
+
+.oa-dw-stat-internal {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    color: #6d28d9 !important;
+}
+
+.oa-dw-stat-card-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.oa-dw-stat-card-value {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.oa-dw-stat-card-label {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* ========== Chart Widget ========== */
+.oa-dw-chart-canvas-wrap {
+    position: relative;
+    height: 200px;
+}
+
+#persian_oa_mini_chart {
+    max-height: 200px;
+}
+
+/* ========== Quick Actions Widget ========== */
+.oa-dw-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.oa-dw-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: var(--oa-dw-radius-sm);
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.oa-dw-action:hover {
+    transform: translateX(-2px);
+}
+
+.oa-dw-action .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.oa-dw-action-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff !important;
+}
+
+.oa-dw-action-success {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff !important;
+}
+
+.oa-dw-action-info {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: #fff !important;
+}
+
+.oa-dw-action-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #fff !important;
+}
+
+/* ========== RTL Enhancements ========== */
+.rtl #dashboard-widgets .oa-dw,
+body.rtl #dashboard-widgets .oa-dw {
+    direction: rtl;
+}
+
+/* ========== Widget Title Styling ========== */
+#dashboard-widgets .postbox[id*="persian_oa"] .hndle {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+/* ========== Polish & Micro-interactions ========== */
+.oa-dw-stat-card:active,
+.oa-dw-action:active {
+    transform: scale(0.98);
+}
